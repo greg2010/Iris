@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package org.red.protos.exceptions;
+
+import "google/protobuf/wrappers.proto";
+import "scalapb/scalapb.proto";
+
+option (scalapb.options) = {
+  import: "org.red.iris.exceptions._"
+};
+/*
+message AccessRestrictedException {
+    option (scalapb.message).extends = "org.red.iris.exceptions.AccessRestrictedException";
+    string reason = 1;
+}*/
