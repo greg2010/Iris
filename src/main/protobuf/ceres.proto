@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package org.red.protos;
+
+import "google/protobuf/wrappers.proto";
+
+service User {
+    rpc VerifyUser(VerifyUserRequest) returns (VerifyUserRequest) {}
+}
+
+message VerifyUserRequest {
+    string nameOrEmail = 1;
+}
