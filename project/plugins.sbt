@@ -1,4 +1,3 @@
 logLevel := Level.Warn
 
-addSbtPlugin("com.thesamet" % "sbt-protoc" % "0.99.11")
-libraryDependencies += "com.trueaccord.scalapb" %% "compilerplugin" % "0.6.0"
+addSbtPlugin("com.twitter" % "scrooge-sbt-plugin" % "4.5.0")
