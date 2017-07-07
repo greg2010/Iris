@@ -13,8 +13,10 @@ struct EveUserData {
     2: required string characterName,
     3: required i64 corporationId,
     4: required string corporationName,
-    5: optional i64 allianceId,
-    6: optional string allianceName,
+    5: required string corporationTicker
+    6: optional i64 allianceId,
+    7: optional string allianceName,
+    8: optional string allianceTicker,
 }
 
 struct User {
@@ -27,6 +29,18 @@ struct User {
     7: required Timestamp creationTime,
     8: required Timestamp lastLoggedIn,
     9: required string languageCode
+}
+
+struct LegacyCredentials {
+    1: required i32 keyId,
+    2: required string vCode
+    3: optional i64 characterId
+    4: optional string name
+}
+
+struct SSOCredentials {
+    1: required string refreshToken
+    2: optional string accessToken
 }
 
 exception AccessRestrictedException {
