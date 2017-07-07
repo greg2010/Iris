@@ -1,6 +1,0 @@
-
-
-
-object main extends App {
-
-}
