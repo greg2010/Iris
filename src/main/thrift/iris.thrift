@@ -2,10 +2,17 @@ namespace java org.red.iris
 
 typedef string Timestamp
 
+struct PermissionBit {
+    1: required string name
+    2: required i32 bitPosition
+    3: required string description
+}
+
 struct UserMini {
     1: required string name
     2: required i32 id
     3: required i64 characterId
+    4: required list<PermissionBit> userPermissions
 }
 
 struct EveUserData {
@@ -34,6 +41,7 @@ struct User {
     7: required Timestamp creationTime
     8: required Timestamp lastLoggedIn
     9: required string languageCode
+    10: required list<PermissionBit> userPermissions
 }
 
 struct LegacyCredentials {

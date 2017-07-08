@@ -13,8 +13,8 @@ import scala.language.higherKinds
 
 class UserClient(config: Config)(implicit ec: ExecutionContext)
   extends GenericClient[UserService[TFuture]](
-    config.getString("userService.host"),
-    config.getInt("userService.port")
+    config.getString("ceres.userService.host"),
+    config.getInt("ceres.userService.port")
   ) {
   private val client = super.build
 

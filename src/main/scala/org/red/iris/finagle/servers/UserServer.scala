@@ -7,5 +7,5 @@ import org.red.ceres.finagle.UserService
 
 class UserServer(config: Config)
   extends GenericServer[UserService[Future]](
-    config.getString("userService.host"),
-    config.getInt("userService.port"))
+    config.getString("ceres.userService.host"),
+      config.getInt("ceres.userService.port"))

@@ -13,7 +13,7 @@ abstract class GenericClient[T: ClassTag](host: String, port: Int) extends LazyL
     logger.info(s"Setting up finagle client at $host:$port")
     ThriftMux.client
       .withRetryBudget(RetryBudget())
-      .withRequestTimeout(TDuration.fromSeconds(5))
+      .withRequestTimeout(TDuration.fromSeconds(10))
       .newIface[T](s"$host:$port")
   }
 }
