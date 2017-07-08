@@ -4,6 +4,7 @@ include "iris.thrift"
 
 
 service UserService {
+    iris.EveUserDataList getEveUser(1: iris.LegacyCredentials credentials);
     iris.UserMini createLegacyUser(1: string email, 2: iris.LegacyCredentials credentials, 3: string password);
     iris.UserMini createSSOUser(1: string email, 2: iris.SSOCredentials credentials, 3: optional string password);
     iris.UserMini verifyUserLegacy(1: string nameOrEmail, 2: string password);
