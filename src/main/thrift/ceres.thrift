@@ -17,3 +17,8 @@ service UserService {
     void requestPasswordReset(1: string email) throws (1: iris.ResourceNotFoundException err1);
     void completePasswordReset(1: string email, 2: string token, 3: string newPassword) throws (1: iris.ResourceNotFoundException err1);
 }
+
+service PermissionService {
+    list<iris.PermissionBit> getPermissionBits(1: i64 mask);
+    i64 getPermissionMask(1: list<iris.PermissionBit> permissionList);
+}

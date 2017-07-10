@@ -9,7 +9,7 @@ import scala.reflect.ClassTag
 
 
 abstract class GenericClient[T: ClassTag](host: String, port: Int) extends LazyLogging {
-  def build: T = {
+  protected def build: T = {
     logger.info(s"Setting up finagle client at $host:$port")
     ThriftMux.client
       .withRetryBudget(RetryBudget())
