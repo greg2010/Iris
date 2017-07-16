@@ -25,4 +25,8 @@ class PermissionClient(config: Config)(implicit ec: ExecutionContext)
   def getPermissionMask(permissionList: Seq[PermissionBit]): Future[Long] = {
     client.getPermissionMask(permissionList).as[Future[Long]]
   }
+
+  def getPermissionList: Future[Seq[PermissionBit]] = {
+    client.getPermissionList.as[Future[Seq[PermissionBit]]]
+  }
 }

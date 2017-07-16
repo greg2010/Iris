@@ -21,4 +21,5 @@ service UserService {
 service PermissionService {
     list<iris.PermissionBit> getPermissionBits(1: i64 mask);
     i64 getPermissionMask(1: list<iris.PermissionBit> permissionList);
+    list<iris.PermissionBit> getPermissionList();
 }
