@@ -9,10 +9,10 @@ struct PermissionBit {
 }
 
 struct UserMini {
-    1: required string name
-    2: required i32 id
+    1: required i32 id
+    2: required string name
     3: required i64 characterId
-    4: required list<PermissionBit> userPermissions
+    4: required list<PermissionBit> permissions
 }
 
 struct EveUserData {
@@ -34,14 +34,11 @@ struct EveUserDataList {
 struct User {
     1: required EveUserData eveUserData
     2: required i32 userId
-    3: required string email
-    4: optional string password
-    5: optional string salt
-    6: required bool isBanned
-    7: required Timestamp creationTime
-    8: required Timestamp lastLoggedIn
-    9: required string languageCode
-    10: required list<PermissionBit> userPermissions
+    3: required bool isBanned
+    4: required Timestamp lastLoggedIn
+    5: required string languageCode
+    6: required list<PermissionBit> permissions
+    7: optional string email
 }
 
 struct LegacyCredentials {
@@ -78,10 +75,23 @@ exception ConflictingEntityException {
     1: required string reason
 }
 
-
-exception NoPasswordException {}
-
-
 exception ResourceNotFoundException {
     1: required string reason
 }
+
+// UNUSED
+
+struct LegacyCredentials {
+    1: required i32 keyId
+    2: required string vCode
+    3: optional i64 characterId
+    4: optional string name
+}
+
+
+struct SSOCredentials {
+    1: required string refreshToken
+    2: optional string accessToken
+}
+
+exception NoPasswordException {}

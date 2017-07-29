@@ -2,7 +2,7 @@ name := "Iris"
 
 organization := "org.red"
 
-version := "0.0.7-SNAPSHOT"
+version := "0.0.12-SNAPSHOT"
 
 scalaVersion := "2.12.2"
 

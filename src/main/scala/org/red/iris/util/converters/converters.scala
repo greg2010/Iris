@@ -10,7 +10,8 @@ package object converters {
     def fromUser(user: User) = UserMini(
       name = user.eveUserData.characterName,
       id = user.userId,
-      characterId = user.eveUserData.characterId
+      characterId = user.eveUserData.characterId,
+      permissions = user.permissions
     )
   }
 }
