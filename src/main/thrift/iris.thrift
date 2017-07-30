@@ -10,8 +10,6 @@ struct PermissionBit {
 
 struct UserMini {
     1: required i32 id
-    2: required string name
-    3: required i64 characterId
     4: required list<PermissionBit> permissions
 }
 
@@ -32,26 +30,14 @@ struct EveUserDataList {
 }
 
 struct User {
-    1: required EveUserData eveUserData
-    2: required i32 userId
-    3: required bool isBanned
-    4: required Timestamp lastLoggedIn
-    5: required string languageCode
-    6: required list<PermissionBit> permissions
-    7: optional string email
+    1: required i32 userId
+    2: required bool isBanned
+    3: optional Timestamp lastLoggedIn
+    4: required string languageCode
+    5: required list<PermissionBit> permissions
+    6: required EveUserDataList eveUserDataList
 }
 
-struct LegacyCredentials {
-    1: required i32 keyId
-    2: required string vCode
-    3: optional i64 characterId
-    4: optional string name
-}
-
-struct SSOCredentials {
-    1: required string refreshToken
-    2: optional string accessToken
-}
 
 exception AccessRestrictedException {
     1: required string reason
@@ -87,7 +73,6 @@ struct LegacyCredentials {
     3: optional i64 characterId
     4: optional string name
 }
-
 
 struct SSOCredentials {
     1: required string refreshToken

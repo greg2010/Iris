@@ -22,8 +22,8 @@ class UserClient(config: Config)(implicit ec: ExecutionContext)
     client.getEveUser(credentials).as[Future[EveUserDataList]]
   }
 
-  def loginSSO(authCode: String): Future[UserMini] = {
-    client.loginSSO(authCode).as[Future[UserMini]]
+  def loginSSO(authCode: String): Future[SuccessfulLoginResponse] = {
+    client.loginSSO(authCode).as[Future[SuccessfulLoginResponse]]
   }
 
   /*

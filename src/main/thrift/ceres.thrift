@@ -3,10 +3,15 @@ namespace java org.red.ceres.finagle
 include "iris.thrift"
 
 
+struct SuccessfulLoginResponse {
+  1: iris.User user,
+  2: i64 currentUser
+}
+
 service UserService {
     iris.EveUserDataList getEveUser(1: iris.LegacyCredentials credentials) throws (1: iris.ResourceNotFoundException err1, 2: iris.BadEveCredential err2);
     //iris.UserMini createLegacyUser(1: string email, 2: iris.LegacyCredentials credentials, 3: string password) throws (1: iris.ResourceNotFoundException err1, 2: iris.BadEveCredential err2, 3: iris.ConflictingEntityException err3);
-    iris.UserMini loginSSO(1: string authCode) throws (1: iris.ResourceNotFoundException err1, 2: iris.BadEveCredential err2);
+    SuccessfulLoginResponse loginSSO(1: string authCode) throws (1: iris.ResourceNotFoundException err1, 2: iris.BadEveCredential err2);
     //iris.UserMini loginPassword(1: string login, 2: string password) throws (1: iris.ResourceNotFoundException err1);
     //iris.UserMini createSSOUser(1: string email, 2: iris.SSOCredentials credentials, 3: optional string password) throws (1: iris.ResourceNotFoundException err1, 2: iris.BadEveCredential err2, 3: iris.ConflictingEntityException err3);
     //iris.UserMini verifyUserLegacy(1: string nameOrEmail, 2: string password) throws (1: iris.ResourceNotFoundException err1, 2: iris.AuthenticationException err2);
