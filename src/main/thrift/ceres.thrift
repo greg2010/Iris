@@ -4,7 +4,7 @@ include "iris.thrift"
 
 
 struct SuccessfulLoginResponse {
-  1: iris.User user,
+  1: iris.UserMini userMini,
   2: i64 currentUser
 }
 
