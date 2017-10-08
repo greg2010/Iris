@@ -18,8 +18,8 @@ class TeamspeakClient(config: Config)(implicit ec: ExecutionContext)
   ) {
   private val client = super.build
 
-  def registerUserOnTeamspeak(user: User, userIp: String): Future[Unit] = {
-    client.registerUserOnTeamspeak(user, userIp).as[Future[Unit]]
+  def registerUserOnTeamspeak(user: User, characterId: Long, userIp: String): Future[String] = {
+    client.registerUserOnTeamspeak(user, characterId, userIp).as[Future[String]]
   }
 
   def getTeamspeakUniqueId(userId: Int): Future[String] = {
